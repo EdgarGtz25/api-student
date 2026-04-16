@@ -7,6 +7,7 @@ api-student es un servicio backend diseñado para administrar información de es
 Este proyecto permite gestionar datos de manera estructurada, segura y escalable, sirviendo como base para sistemas educativos, administrativos o proyectos de aprendizaje.
 
  Características:
+ 
 -API RESTful clara y consistente
 -Operaciones CRUD completas
 -Validación de datos de entrada
