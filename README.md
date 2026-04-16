@@ -8,9 +8,9 @@ Este proyecto permite gestionar datos de manera estructurada, segura y escalable
 
  Características:
  
--API RESTful clara y consistente
--Operaciones CRUD completas
--Validación de datos de entrada
--Manejo de errores centralizado
--Arquitectura en capas (Clean Architecture ready)
--Fácil integración con frontend o servicios externos
+  -API RESTful clara y consistente
+  -Operaciones CRUD completas
+  -Validación de datos de entrada
+  -Manejo de errores centralizado 
+  -Arquitectura en capas (Clean Architecture ready)
+  -Fácil integración con frontend o servicios externos
