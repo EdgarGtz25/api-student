@@ -7,12 +7,14 @@ import com.itcl.students.mx.students.mapper.StudentMapper;
 import com.itcl.students.mx.students.repository.StudentRepository;
 import com.itcl.students.mx.students.service.StudentService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository repository;

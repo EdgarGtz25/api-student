@@ -6,35 +6,31 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "students")
+@Table(name = "advisors")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Student {
+public class Advisor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String name;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
     private String email;
 
-    private Integer age;
+    // 👇 Un asesor tiene muchos estudiantes
+    @OneToMany(mappedBy = "advisor")
+    private List<Student> students;
 
-    // 👇 Relación con asesor
-    @ManyToOne
-    @JoinColumn(name = "advisor_id")
-    private Advisor advisor;
-
-    // 👇 Relación con materias
+    // 👇 Puede impartir varias materias
     @ManyToMany
     @JoinTable(
-            name = "student_subjects",
-            joinColumns = @JoinColumn(name = "student_id"),
+            name = "advisor_subjects",
+            joinColumns = @JoinColumn(name = "advisor_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id")
     )
     private List<Subject> subjects;
