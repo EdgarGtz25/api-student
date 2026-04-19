@@ -14,18 +14,14 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/h2-console/**")
-                        .disable()
-                )
+                .csrf(csrf -> csrf.disable()) // 🔥 importante
+                .cors(Customizer.withDefaults()) // 🔥 importante
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/auth/login").permitAll() // 🔥 importante
+                        .anyRequest().permitAll()
                 )
-                .httpBasic(Customizer.withDefaults())
-                .headers(headers -> headers
-                        .frameOptions(frame -> frame.disable())
-                );
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()));
 
         return http.build();
     }
