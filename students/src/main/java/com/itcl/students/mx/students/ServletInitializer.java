@@ -1,13 +1,13 @@
 package com.itcl.students.mx.students;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-public class ServletInitializer extends SpringBootServletInitializer {
+@SpringBootApplication
+public class ServletInitializer {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(StudentsApplication.class);
-	}
-
+	public static void main(String[] args) {
+		SpringApplication.run(ServletInitializer.class, args);
+		System.out.println(new BCryptPasswordEncoder().encode("123456"));	}
 }
